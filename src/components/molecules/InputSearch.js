@@ -1,14 +1,20 @@
 import React from 'react';
 import {View} from "react-native";
 import Input from "../atoms/Input.js";
+import styled from "styled-components/native";
+import {border_radius, color} from "../../styles/const";
 
-export default function InputSearch() {
+export default function InputSearch(props) {
 
     return (
-        <View>
+        <Container>
             <Input
-                placeholder="Nom d'établissement, de ville..."
+                {...props}
             />
-        </View>
+        </Container>
     )
 }
+
+const Container = styled.View`
+  width: 100%;
+`;

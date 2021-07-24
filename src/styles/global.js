@@ -1,54 +1,13 @@
-@import "variables";
-@import "fonts.js";
+import {spacing} from "./const";
+import {StyleSheet} from 'react-native';
 
-// GLOBAL
-body {
-  background: var(--neutral-grey);
-  display: flex;
-  flex-direction: column;
-  color: var(--neutral-black);
-  font-family: 'Moderat', sans-serif;
-  font-weight: 400;
+export const globalStyle = StyleSheet.create({
 
-  main {
-    display: flex;
+    // UTILITY CLASSES
+    container: {
+        width: '100%',
+        backgroundColor: 'red',
+        padding: `${spacing[5]}`,
+    },
 
-    .main-app {
-      flex: 1;
-      padding: var(--spacing-6);
-    }
-
-    .nav-header {
-      height: 80px;
-      width: 100vw;
-      overflow: hidden;
-      position: fixed;
-      background: white;
-      top: 0;
-      left: 0;
-      z-index: 99999;
-    }
-
-    .main-app {
-      width: calc(100vw - 180px);
-      margin: 80px 0 0 180px;
-      padding: var(--spacing-6);
-      box-sizing: border-box;
-    }
-  }
-
-  p, h1, h2, h3 {
-    margin: 0;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  // UTILITY CLASS
-  .box-default {
-    border-radius: var(--border-radius-2);
-    background: var(--neutral-white);
-    padding: var(--spacing-6);
-  }
-}
+});

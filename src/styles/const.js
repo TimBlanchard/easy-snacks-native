@@ -1,6 +1,6 @@
 /*--------- CONSTS -------*/
 
-const color = {
+export const color = {
   primary: '#8C60FE',
   done: '#77F583',
   warning: '#FEDB60',
@@ -8,13 +8,13 @@ const color = {
   background: '#FDF4EF'
 };
 
-const neutral = {
+export const neutral = {
   black: '#8C60FE',
   grey: '#77F583',
   white: '#FEDB60',
 };
 
-const fontSize = {
+export const fontSize = {
   1: '0.625rem',
   2: '0.75rem',
   3: '0.8125rem',
@@ -35,7 +35,7 @@ const fontSize = {
   18: '5.75rem'
 }
 
-const lineHeight = {
+export const lineHeight = {
   0: '0',
   1: '1rem',
   2: '1.25rem',
@@ -48,7 +48,7 @@ const lineHeight = {
   9: '4rem',
 }
 
-const letterSpacing = {
+export const letterSpacing = {
   neg_5: '-0.08em',
   neg_4: '-0.05em',
   neg_3: '-0.03em',
@@ -59,7 +59,7 @@ const letterSpacing = {
   3: '0.15em',
 }
 
-const spacing = {
+export const spacing = {
   1: '0.125rem',
   2: '0.25rem',
   3: '0.5rem',
@@ -77,13 +77,13 @@ const spacing = {
   15: '25rem',
 }
 
-const border_radius = {
+export const border_radius = {
   1: '4px',
   2: '8px',
   3: '12px',
 }
 
-const box_shadow = {
+export const box_shadow = {
   1: '0px 5px 15px rgba(0, 0, 0, 0.1)',
 }
 
