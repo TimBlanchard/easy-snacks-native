@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Route } from "wouter";
+import ListingSchool from "./src/pages/ListingSchools";
+import SingleSchool from "./src/pages/SingleSchool";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Heho</Text>
+      <Route path="/" component={ListingSchool}/>
+      <Route path="/schools/:name" component={SingleSchool}/>
       <StatusBar style="auto" />
     </View>
   );
