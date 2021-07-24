@@ -1,0 +1,14 @@
+.indicator-state-with-text {
+  display: flex;
+  align-items: center;
+  &__state {
+    margin-right: var(--spacing-3);
+  }
+  &__text {
+    font-size: var(--font-size-4);
+    letter-spacing: var(--letter-spacing-neg-1);
+    span {
+      font-weight: bold;
+    }
+  }
+}

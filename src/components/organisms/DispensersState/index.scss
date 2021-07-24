@@ -1,0 +1,9 @@
+.dispensers-state {
+  display: flex;
+  border: 1px solid var(--neutral-grey);
+  border-radius: var(--border-radius-1);
+  padding: var(--spacing-2) var(--spacing-1);
+  .indicator-state-with-text {
+    margin: 0 var(--spacing-3);
+  }
+}

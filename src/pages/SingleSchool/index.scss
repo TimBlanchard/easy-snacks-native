@@ -1,0 +1,14 @@
+.single-school {
+  display: grid;
+  grid-gap: var(--spacing-6);
+  grid-template-areas: '. .';
+  grid-template-columns: 3fr 2fr;
+
+  .principal {
+
+  }
+
+  aside {
+
+  }
+}

@@ -1,0 +1,29 @@
+.nav-header {
+  background-color: var(--neutral-white);
+  display: flex;
+  padding: var(--spacing-3) var(--spacing-7);
+  align-items: center;
+  position: fixed;
+  justify-content: space-between;
+  height: 65px;
+  width: calc(100vw - (var(--spacing-7) + var(--spacing-7)));
+  border-bottom: 1px solid var(--neutral-grey);
+  z-index: 999999;
+
+  &__block--left {
+    display: flex;
+    align-items: center;
+  }
+  &__block--right {
+    display: flex;
+    align-items: center;
+    .login-info {
+      border-left: 1px solid var(--neutral-grey);
+      padding: 0 0 0 var(--spacing-5);
+      margin: 0 0 0 var(--spacing-6);
+    }
+  }
+  .logo {
+    margin-right: var(--spacing-6);
+  }
+}

@@ -1,0 +1,10 @@
+.boxIcon {
+  background: var(--color-background);
+  border-radius: var(--border-radius-1);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-4);
+}
