@@ -1,12 +1,13 @@
 import React from 'react';
-import './index.scss'
 import {View, Text} from "react-native";
+import InputSearch from "../components/molecules/InputSearch.js";
+
 
 export default function ListingSchool() {
 
     return (
         <View>
-            <Text>Bah ouais</Text>
+            <InputSearch/>
         </View>
     )
 }

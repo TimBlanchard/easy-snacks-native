@@ -1,5 +1,4 @@
 import React from 'react'
-import './index.scss'
 import {View} from "react-native";
 import {Text} from "react-native-web";
 

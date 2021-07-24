@@ -1,25 +1,23 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import styled from 'styled-components/native';
 import { Route } from "wouter";
-import ListingSchool from "./src/pages/ListingSchools";
-import SingleSchool from "./src/pages/SingleSchool";
+import ListingSchool from "./src/pages/ListingSchools.js";
+import SingleSchool from "./src/pages/SingleSchool.js";
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <Container>
       <Route path="/" component={ListingSchool}/>
       <Route path="/schools/:name" component={SingleSchool}/>
       <StatusBar style="auto" />
-    </View>
+    </Container>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+const Container = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`;
