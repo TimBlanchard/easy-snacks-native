@@ -4,9 +4,8 @@ import {StyleSheet} from 'react-native';
 export const globalStyle = StyleSheet.create({
 
     // UTILITY CLASSES
-    container: {
+    wrapper_full: {
         width: '100%',
-        backgroundColor: 'red',
         padding: `${spacing[5]}`,
     },
 

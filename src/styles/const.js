@@ -9,9 +9,10 @@ export const color = {
 };
 
 export const neutral = {
-  black: '#8C60FE',
-  grey: '#77F583',
-  white: '#FEDB60',
+  black: '#3E2A70',
+  grey_01: '#3C3C3C',
+  grey: '#EDEDEE',
+  white: '#FFFFFF',
 };
 
 export const fontSize = {
@@ -84,7 +85,7 @@ export const border_radius = {
 }
 
 export const box_shadow = {
-  1: '0px 5px 15px rgba(0, 0, 0, 0.1)',
+  1: '0px 5px 15px rgba(0, 0, 0, 0.15)',
 }
 
 

@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import styled from 'styled-components/native';
 import { Route } from "wouter";
-import ListingSchool from "./src/pages/ListingSchools.js";
+import SearchSchools from "./src/pages/SearchSchools.js";
 import SingleSchool from "./src/pages/SingleSchool.js";
 import {useFonts} from "expo-font";
 import AppLoading from "expo-app-loading";
@@ -18,7 +18,7 @@ if(!fontsLoaded) {
 } else {
     return (
         <Container>
-            <Route path="/" component={ListingSchool}/>
+            <Route path="/" component={SearchSchools}/>
             <Route path="/schools/:name" component={SingleSchool}/>
             <StatusBar style="auto" />
         </Container>
