@@ -9,7 +9,7 @@ import FixedButton from "../atoms/FixedButton";
 
 export default function ListingSchools(props) {
 
-    const [selectedId, setSelectedId] = useState(0);
+    const [selectedId, setSelectedId] = useState(null);
 
     return (
         <Container>
@@ -29,7 +29,7 @@ export default function ListingSchools(props) {
                         setSelectedId={setSelectedId}
                     />}
             />
-            <FixedButton text="Confirmer" />
+            <FixedButton disabled={!selectedId} link={'/schools/'+selectedId} text="Confirmer" />
         </Container>
     )
 }

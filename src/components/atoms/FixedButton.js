@@ -2,8 +2,9 @@ import React from 'react';
 import styled from "styled-components/native";
 import {color, fontSize, letterSpacing, neutral, spacing} from "../../styles/const";
 import {globalStyle} from "../../styles/global";
+import {Link} from "wouter";
 
-export default function FixedButton(props) {
+export default function FixedButton({text, link, disabled, ...rest}) {
 
     const ButtonContainer = styled.TouchableOpacity`
       position: fixed;
@@ -12,7 +13,7 @@ export default function FixedButton(props) {
       left:0;
       padding: ${spacing[5]};
       text-align: center;
-      background-color: ${color.primary};
+      background-color: ${disabled ? color.disabled : color.primary};
 `;
 
     const ButtonText = styled.Text`
@@ -21,21 +22,13 @@ export default function FixedButton(props) {
 `;
 
     return (
-        <ButtonContainer>
-            <ButtonText style={globalStyle.text_white}>{props.text}</ButtonText>
+        <ButtonContainer {...rest}>
+            <Link href={disabled ? '/' : link}>
+                <ButtonText style={globalStyle.text_white}>{text}</ButtonText>
+            </Link>
         </ButtonContainer>
     )
 }
-
-/*const Btn = styled.Button`
-  font-family: ${props => props.large ? 'Moderat Extended' : 'Moderat Bold'};
-      color: white;
-      position: absolute;
-      bottom:0;
-      left:0;
-      text-transform: capitalize;
-      background-color: ${color.primary}!important;
-`;*/
 
 
 

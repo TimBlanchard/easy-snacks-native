@@ -3,6 +3,7 @@
 export const color = {
   primary: '#8C60FE',
   secondary: '#FDF4EF',
+  disabled: '#C5AFFF',
   done: '#77F583',
   warning: '#FEDB60',
   error: '#FE6060',
