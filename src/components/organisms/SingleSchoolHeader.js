@@ -23,5 +23,6 @@ export default function SingleSchoolHeader(props) {
 
 const Container = styled.View`
   width: 100%;
+  padding: ${spacing[5]}
   background: ${color.secondary};
 `;

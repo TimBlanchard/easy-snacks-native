@@ -6,7 +6,7 @@ export default function Title({large, center, text, ...rest}) {
 
     const Txt = styled.Text`
   font-family: ${large ? 'Moderat Extended' : 'Moderat Bold'};
-  font-size: ${large ? fontSize[10] : fontSize[8]};
+  font-size: ${large ? fontSize[10] : fontSize[7]};
   color: ${neutral.black};
   letter-spacing: ${letterSpacing.neg_4};
   text-align: ${center ? "center" : "inherit"};
