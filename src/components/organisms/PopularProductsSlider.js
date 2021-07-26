@@ -6,8 +6,11 @@ import {Link} from "wouter";
 import Button from "../atoms/Button";
 import schoolsData from "../../helpers/schoolsData";
 import {getSchoolDetails} from "../../services/network";
+import Title from "../atoms/Title";
+import ListingSchoolItem from "../molecules/ListingSchoolItem";
+import {FlatList, Text} from "react-native";
 
-export default function ProductsFilter(props) {
+export default function PopularProductsSlider({products}) {
 
     const Container = styled.View`
       padding: ${spacing[5]};
@@ -17,9 +20,15 @@ export default function ProductsFilter(props) {
 
     return (
         <Container>
-            <Button secondary style={{marginLeft: spacing[3]}} text='Tous les produits' />
-            <Button secondary style={{marginLeft: spacing[3]}} text='Snacks' />
-            <Button secondary style={{marginLeft: spacing[3]}} text='Boissons' />
+            <Title text='Produits populaires'/>
+            <FlatList
+                data={products}
+                keyExtractor={item => item.toString()}
+                renderItem={({item}) =>
+                    <Text
+                        key={item.toString()}
+                    >{item}</Text>}
+            />
         </Container>
     )
 }

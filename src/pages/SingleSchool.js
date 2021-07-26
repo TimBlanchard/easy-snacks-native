@@ -8,6 +8,7 @@ import styled from "styled-components/native/dist/styled-components.native.esm";
 import {color} from "../styles/const";
 import Title from "../components/atoms/Title";
 import ProductsFilter from "../components/molecules/ProductsFilter";
+import PopularProductsSlider from "../components/organisms/PopularProductsSlider";
 
 export default function SingleSchool() {
     const [match, params] = useRoute("/schools/:id");
@@ -24,18 +25,23 @@ export default function SingleSchool() {
     // GET ALL TYPES OF PRODUCT OF THE SCHOOL
     const getSchoolProducts = () => {
         if(schoolDetails.dispensers){
-            let productAr = [];
+            let productsArray = [];
             schoolDetails.dispensers.forEach(
                 element => element.productsId.forEach(
                     element => {
-                        if (!productAr.find(el => el === element))
-                        productAr.push(element)
+                        if (!productsArray.find(el => el === element))
+                            productsArray.push(element)
                     }
                 )
             );
-            console.log(productAr, 'hel')
-            return productAr;
+            console.log(productsArray, 'hel')
+            setProducts(productsArray);
+            return productsArray;
         }
+    }
+
+    const getSchoolProductsCategories = () => {
+
     }
 
 
@@ -45,6 +51,7 @@ export default function SingleSchool() {
 
     useEffect(()=>{
         getSchoolProducts();
+        getSchoolProductsCategories();
     },[schoolDetails])
 
 
@@ -53,7 +60,7 @@ export default function SingleSchool() {
         <Container>
             <SingleSchoolHeader name={schoolDetails.name}/>
             <ProductsFilter dispensers={params.id}/>
-            <Title text='Produits populaires'/>
+            <PopularProductsSlider products={products}/>
             <Title text='Distributeurs à proximité'/>
             <Text>Single school</Text>
             <Text>{params.id}</Text>
