@@ -7,6 +7,7 @@ import {getSchoolDetails} from "../services/network";
 import styled from "styled-components/native/dist/styled-components.native.esm";
 import {color} from "../styles/const";
 import Title from "../components/atoms/Title";
+import ProductsFilter from "../components/molecules/ProductsFilter";
 
 export default function SingleSchool() {
     const [match, params] = useRoute("/schools/:id");
@@ -27,6 +28,7 @@ export default function SingleSchool() {
     return (
         <Container>
             <SingleSchoolHeader name={schoolDetails.name}/>
+            <ProductsFilter/>
             <Title text='Produits populaires'/>
             <Title text='Distributeurs à proximité'/>
             <Text>Single school</Text>

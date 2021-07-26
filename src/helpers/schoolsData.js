@@ -5,6 +5,16 @@ const schoolsData = [
         address:"43 rue de la paix",
         postal_code:"75001",
         city:"Paris",
+        dispensers: [
+            {
+                id: 1,
+                products: ['coca-cola', 'Sandwich Thon mayonnaise', 'pepsi', 'orangina']
+            },
+            {
+                id: 2,
+                products: ['coca-cola', 'Sandwich Thon mayonnaise', 'pepsi', 'orangina']
+            }
+        ]
     },
     {
         id:2,
