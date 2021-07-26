@@ -8,11 +8,11 @@ const schoolsData = [
         dispensers: [
             {
                 id: 1,
-                products: ['coca-cola', 'Sandwich Thon mayonnaise', 'pepsi', 'orangina']
+                productsId: [1, 3, 6]
             },
             {
                 id: 2,
-                products: ['coca-cola', 'Sandwich Thon mayonnaise', 'pepsi', 'orangina']
+                productsId: [6, 5, 4]
             }
         ]
     },
@@ -22,6 +22,16 @@ const schoolsData = [
         address:"33 rue de la paix",
         postal_code:"75002",
         city:"Paris",
+        dispensers: [
+            {
+                id: 1,
+                productsId: [1, 2, 3, 5, 6]
+            },
+            {
+                id: 2,
+                productsId: [6, 5]
+            }
+        ]
     },
     {
         id:3,
@@ -29,6 +39,12 @@ const schoolsData = [
         address:"12 rue de la paix",
         postal_code:"75003",
         city:"Paris",
+        dispensers: [
+            {
+                id: 1,
+                productsId: [1, 2, 3, 4, 5, 6]
+            }
+        ]
     },
     {
         id:4,
@@ -36,6 +52,12 @@ const schoolsData = [
         address:"18 rue de la paix",
         postal_code:"75004",
         city:"Paris",
+        dispensers: [
+            {
+                id: 1,
+                productsId: [1, 2, 3, 4, 5, 6]
+            }
+        ]
     },
     {
         id:5,
@@ -43,6 +65,12 @@ const schoolsData = [
         address:"43 rue de la paix",
         postal_code:"75005",
         city:"Paris",
+        dispensers: [
+            {
+                id: 1,
+                productsId: [1, 2, 3, 4, 5, 6]
+            }
+        ]
     },
 ]
 

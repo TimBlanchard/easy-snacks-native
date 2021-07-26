@@ -11,7 +11,8 @@ import ProductsFilter from "../components/molecules/ProductsFilter";
 
 export default function SingleSchool() {
     const [match, params] = useRoute("/schools/:id");
-    const [schoolDetails, setSchoolDetails] = useState([])
+    const [schoolDetails, setSchoolDetails] = useState([]);
+    const [products, setProducts] = useState([]);
 
     //GET SCHOOL DETAILS FROM API
     const fetchSchoolsDetails = () => {
@@ -19,16 +20,39 @@ export default function SingleSchool() {
             setSchoolDetails(data);
         });
     }
+
+    // GET ALL TYPES OF PRODUCT OF THE SCHOOL
+    const getSchoolProducts = () => {
+        if(schoolDetails.dispensers){
+            let productAr = [];
+            schoolDetails.dispensers.forEach(
+                element => element.productsId.forEach(
+                    element => {
+                        if (!productAr.find(el => el === element))
+                        productAr.push(element)
+                    }
+                )
+            );
+            console.log(productAr, 'hel')
+            return productAr;
+        }
+    }
+
+
     useEffect(() => {
         fetchSchoolsDetails();
     }, []);
+
+    useEffect(()=>{
+        getSchoolProducts();
+    },[schoolDetails])
 
 
 
     return (
         <Container>
             <SingleSchoolHeader name={schoolDetails.name}/>
-            <ProductsFilter/>
+            <ProductsFilter dispensers={params.id}/>
             <Title text='Produits populaires'/>
             <Title text='Distributeurs à proximité'/>
             <Text>Single school</Text>
