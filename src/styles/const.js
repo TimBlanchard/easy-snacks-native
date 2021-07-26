@@ -2,6 +2,7 @@
 
 export const color = {
   primary: '#8C60FE',
+  secondary: '#FDF4EF',
   done: '#77F583',
   warning: '#FEDB60',
   error: '#FE6060',
@@ -10,6 +11,7 @@ export const color = {
 
 export const neutral = {
   black: '#3E2A70',
+  black_op_80: 'rgba(62,42,112,0.8)',
   grey_01: '#3C3C3C',
   grey: '#EDEDEE',
   white: '#FFFFFF',

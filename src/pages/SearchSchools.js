@@ -4,6 +4,7 @@ import styled from "styled-components/native";
 import {globalStyle} from "../styles/global";
 import Title from "../components/atoms/Title";
 import ListingSchools from "../components/organisms/ListingSchools";
+import {spacing} from "../styles/const";
 
 
 export default function SearchSchools() {
@@ -11,11 +12,10 @@ export default function SearchSchools() {
     return (
         <Container>
             <Wrapper style={globalStyle.wrapper_full}>
-                <Title text={'Trouvez votre établissement'} center />
-                <InputSearch secondary placeholder="Nom d'établissement, de ville..." />
+                <Title style={{marginBottom:  spacing[6]}} text={'Trouvez votre établissement'} center />
                 <InputSearch placeholder="Nom d'établissement, de ville..." />
-                <ListingSchools/>
             </Wrapper>
+            <ListingSchools/>
         </Container>
     )
 }

@@ -12,6 +12,7 @@ export default function App() {
         'Moderat': require('./src/styles/fonts/Moderat-Regular.ttf'),
         'Moderat Medium': require('./src/styles/fonts/Moderat-Medium.ttf'),
         'Moderat Bold': require('./src/styles/fonts/Moderat-Bold.ttf'),
+        'Moderat Extended': require('./src/styles/fonts/Moderat-Extended-Bold.ttf'),
     });
 if(!fontsLoaded) {
     return <AppLoading/>

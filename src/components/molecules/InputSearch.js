@@ -9,6 +9,7 @@ export default function InputSearch(props) {
     const Container = styled.View`
   width: 100%;
   border: ${ props.secondary ? "none" : `1px solid ${color.primary}`};
+      background: ${neutral.white};
   box-shadow: ${props.secondary ? box_shadow[1] : "none"};
   padding: ${spacing[4]} ${spacing[5]};
   border-radius: ${border_radius[3]};

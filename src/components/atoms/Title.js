@@ -1,20 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from "styled-components/native";
 import { fontSize, letterSpacing, neutral} from "../../styles/const";
 
-export default function Title(props) {
+export default function Title({large, center, text, ...rest}) {
 
     const Txt = styled.Text`
-  font-family: 'Moderat Bold';
-  font-size: ${fontSize[8]};
+  font-family: ${large ? 'Moderat Extended' : 'Moderat Bold'};
+  font-size: ${large ? fontSize[10] : fontSize[8]};
   color: ${neutral.black};
   letter-spacing: ${letterSpacing.neg_4};
-  text-align: ${props.center ? "center" : "inherit"}
+  text-align: ${center ? "center" : "inherit"};
 `;
 
     return (
-        <Txt>
-            {props.text}
+        <Txt {...rest}>
+            {text}
         </Txt>
     )
 }
