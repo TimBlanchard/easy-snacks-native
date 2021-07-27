@@ -57,7 +57,10 @@ export default function SingleSchool() {
                 productsCategories.length > 0 &&
                 <ProductsFilter categories={productsCategories}/>
             }
-            {/*<PopularProductsSlider products={productsId}/>*/}
+            {
+                productsId.length > 0 &&
+                <PopularProductsSlider products={productsId}/>
+            }
             <Title text='Distributeurs à proximité'/>
             <Text>Single school</Text>
             <Text>{params.id}</Text>

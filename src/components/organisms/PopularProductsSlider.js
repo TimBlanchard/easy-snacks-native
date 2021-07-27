@@ -9,27 +9,43 @@ import {getSchoolDetails} from "../../services/network";
 import Title from "../atoms/Title";
 import ListingSchoolItem from "../molecules/ListingSchoolItem";
 import {FlatList, Text} from "react-native";
+import {getCategoryName} from "../../helpers/functions";
+import ProductCard from "../molecules/ProductCard";
 
 export default function PopularProductsSlider({products}) {
 
+    const ContainerTitle = styled.View`
+      padding: ${spacing[2]} ${spacing[5]};
+      overflow: auto;
+`;
     const Container = styled.View`
       padding: ${spacing[5]};
-      flex-direction: row;
       overflow: auto;
+    `;
+    const List = styled.FlatList`
+        overflow: hidden;
 `;
 
     return (
-        <Container>
-            <Title text='Produits populaires'/>
-            <FlatList
-                data={products}
-                keyExtractor={item => item.toString()}
-                renderItem={({item}) =>
-                    <Text
-                        key={item.toString()}
-                    >{item}</Text>}
-            />
-        </Container>
+        <>
+            <ContainerTitle>
+                <Title text='Produits populaires'/>
+            </ContainerTitle>
+            <Container>
+                <List
+                    style={{ overflow: "visible" }}
+                    data={products}
+                    keyExtractor={item => item.toString()}
+                    horizontal
+                    renderItem={({item}) =>
+                        <ProductCard
+                            key={item.toString()}
+                            text={'Coca-cola'}
+                            style={{marginLeft: spacing[3]}}
+                        />}
+                />
+            </Container>
+        </>
     )
 }
 

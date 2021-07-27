@@ -9,7 +9,7 @@ export default function IconWithText(props) {
     const Container = styled.View`
         flex-direction: row;
       align-items: center;
-      padding: ${spacing[5]};
+      padding: ${props.no_padding ? 0 : spacing[3]};
       justify-content: center;
   
 `;

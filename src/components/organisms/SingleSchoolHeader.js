@@ -14,7 +14,6 @@ export default function SingleSchoolHeader(props) {
     return (
         <Container>
             <IconWithText text='Etablissement' iconName='localisation' textColor={color.primary} size_small/>
-            <IconWithText text='Etablissement' iconName='localisation-black' value={8}/>
             <Title text={props.name} large center />
             <InputSearch secondary placeholder="Rechercher un produit ou une catégorie" />
         </Container>

@@ -1,4 +1,4 @@
-import {color, fontSize, letterSpacing, neutral, spacing} from "./const";
+import {border_radius, color, fontSize, letterSpacing, neutral, spacing} from "./const";
 import {StyleSheet} from 'react-native';
 
 export const globalStyle = StyleSheet.create({
@@ -7,6 +7,10 @@ export const globalStyle = StyleSheet.create({
     wrapper_full: {
         width: '100%',
         padding: spacing[5],
+    },
+    box_default: {
+      border: `1px solid ${neutral.grey}`,
+        borderRadius: border_radius[3]
     },
 
     subtitle: {
