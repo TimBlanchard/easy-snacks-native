@@ -26,6 +26,10 @@ export default function PopularProductsSlider({products}) {
         overflow: hidden;
 `;
 
+    useEffect(()=>{
+        console.log(products, 'ee');
+    },[products])
+
     return (
         <>
             <ContainerTitle>
@@ -40,7 +44,9 @@ export default function PopularProductsSlider({products}) {
                     renderItem={({item}) =>
                         <ProductCard
                             key={item.toString()}
-                            text={'Coca-cola'}
+                            id={item.id}
+                            img={item.imgName}
+                            text={item.name}
                             style={{marginLeft: spacing[3]}}
                         />}
                 />

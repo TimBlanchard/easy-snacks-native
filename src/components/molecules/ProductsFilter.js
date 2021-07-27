@@ -7,7 +7,6 @@ import Button from "../atoms/Button";
 import schoolsData from "../../helpers/schoolsData";
 import {getSchoolDetails} from "../../services/network";
 import {FlatList, Text} from "react-native";
-import {getCategoryName} from "../../helpers/functions";
 
 export default function ProductsFilter(props) {
 
@@ -20,8 +19,12 @@ export default function ProductsFilter(props) {
         overflow: hidden;
 `;
 
+    const getCategoryName = (idCategory) => {
+        return props.allCategories.find(cat => cat.id === idCategory).name
+    }
+
     useEffect(()=>{
-        console.log(props.categories);
+        console.log(props.categories, 'wow');
     },[])
 
     return (

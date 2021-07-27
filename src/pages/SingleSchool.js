@@ -3,7 +3,7 @@ import {View} from "react-native";
 import {Text} from "react-native-web";
 import {useRoute} from "wouter";
 import SingleSchoolHeader from "../components/organisms/SingleSchoolHeader";
-import {getSchoolDetails} from "../services/network";
+import {getAllCategories, getSchoolDetails, getSchoolDispensers} from "../services/network";
 import styled from "styled-components/native/dist/styled-components.native.esm";
 import {color} from "../styles/const";
 import Title from "../components/atoms/Title";
@@ -16,20 +16,31 @@ import {getDispensersProducts, getProductCategories, getProductsCategories} from
 export default function SingleSchool() {
     const [match, params] = useRoute("/schools/:id");
     const [schoolDetails, setSchoolDetails] = useState([]);
-    const [productsId, setProductsId] = useState([]);
+    const [dispensers, setDispensers] = useState([]);
+    const [allCategories, setAllCategories] = useState([]);
+    const [products, setProducts] = useState([]);
     const [productsCategories, setProductsCategories] = useState([]);
 
-    //GET SCHOOL DETAILS FROM API
-    const fetchSchoolsDetails = () => {
+    //FETCH DATA FROM API
+    const fetchApiData = () => {
+        //GET SCHOOL DETAILS FROM API
         getSchoolDetails(params.id).then(data => {
             setSchoolDetails(data);
+        });
+        //GET SCHOOL DISPENSERS FROM API
+        getSchoolDispensers(params.id).then(data => {
+            setDispensers(data);
+        });
+        //GET CATEGORIES INFO
+        getAllCategories().then(data => {
+            setAllCategories(data);
         });
     }
 
     // GET ALL TYPES OF PRODUCT OF THE SCHOOL
     const setSchoolProducts = () => {
-        if(schoolDetails.dispensers){
-            return setProductsId(getDispensersProducts(schoolDetails.dispensers));
+        if(dispensers){
+            return setProducts(getDispensersProducts(dispensers));
         } else {
             return;
         }
@@ -37,20 +48,23 @@ export default function SingleSchool() {
 
 
     useEffect(() => {
-        fetchSchoolsDetails();
+        fetchApiData();
     }, []);
 
-    useEffect(() => {
-        console.log(schoolDetails[0], 'les school details');
-    }, [schoolDetails])
-
-    /*useEffect(()=>{
-        setSchoolProducts();
-    },[schoolDetails])
 
     useEffect(()=>{
-        setProductsCategories(getProductsCategories(productsId));
-    },[productsId])*/
+        setSchoolProducts();
+    },[dispensers])
+
+    useEffect(()=>{
+        setProductsCategories(getProductsCategories(products));
+    },[products])
+
+    useEffect(()=>{
+        console.log(allCategories, 'wesh')
+    },[allCategories])
+
+
 
 
 
@@ -59,14 +73,14 @@ export default function SingleSchool() {
             {
                 schoolDetails[0] ?
                     <Container>
-                    <SingleSchoolHeader name={schoolDetails[0].name}/>
+                        <SingleSchoolHeader name={schoolDetails[0].name}/>
                     {
                         productsCategories.length > 0 &&
-                        <ProductsFilter categories={productsCategories}/>
+                        <ProductsFilter allCategories={allCategories} categories={productsCategories}/>
                     }
                     {
-                        productsId.length > 0 &&
-                        <PopularProductsSlider products={productsId}/>
+                        products.length > 0 &&
+                        <PopularProductsSlider products={products}/>
                     }
                     <Title text='Distributeurs à proximité'/>
                     <Text>Single school</Text>

@@ -38,7 +38,7 @@ export default function ProductCard(props) {
 
     return (
         <Container style={globalStyle.box_default}>
-            <Image style={styles.icon} source={require(`../../../assets/products/coca-cola.png`)} />
+            <Image style={styles.icon} source={require(`../../../assets/products/${props.img}.png`)} />
             <Name style={globalStyle.subtitle}>
                 {props.text}
             </Name>

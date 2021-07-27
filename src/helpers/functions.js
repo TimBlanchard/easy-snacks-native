@@ -1,7 +1,9 @@
 import {productsCategoriesData, productsData} from "./productsData";
+import {useEffect} from "react";
+import {getAllCategories} from "../services/network";
 
 // GET ALL TYPES OF PRODUCT OF DISPENSERS
-export const getDispensersProducts = (schoolDispensers) => {
+/*export const getDispensersProducts = (schoolDispensers) => {
     if(schoolDispensers){
         let productsIds = [];
         schoolDispensers.forEach(
@@ -9,6 +11,22 @@ export const getDispensersProducts = (schoolDispensers) => {
                 productId => {
                     if (!productsIds.find(el => el === productId))
                         productsIds.push(productId)
+                }
+            )
+        );
+        return productsIds;
+    }
+}*/
+
+// GET ALL TYPES OF PRODUCT OF DISPENSERS
+export const getDispensersProducts = (dispensers) => {
+    if(dispensers){
+        let productsIds = [];
+        dispensers.forEach(
+            dispenser => dispenser.products.forEach(
+                product => {
+                    if (!productsIds.find(el => el.id === product.id))
+                        productsIds.push(product)
                 }
             )
         );
@@ -32,19 +50,14 @@ export const getProductCategories = (productId) => {
 
 
 // GET ALL CATEGORIES OF PRODUCTS ID ARRAY
-export const getProductsCategories = (productsIdArray) => {
-    if(productsIdArray){
+export const getProductsCategories = (products) => {
+    if(products){
         let categories = [];
-        productsIdArray.forEach(
-            productId => {
-                const productCategories = getProductCategories(productId);
-                console.log(productCategories);
-                productCategories.forEach(
-                    productCategory => {
-                        if (!categories.find(el => el === productCategory))
-                        categories.push(productCategory);
-                    }
-                );
+        products.forEach(
+            product => {
+                if (!categories.find(el => el=== product.categoryId)){
+                    categories.push(product.categoryId);
+                }
             }
         );
         return categories;
@@ -53,6 +66,16 @@ export const getProductsCategories = (productsIdArray) => {
 
 // GET NAME OF CATEGORY ID
 export const getCategoryName = (categoryId) => {
+
+    /*useEffect(()=>{
+
+        //GET CATEGORIES INFO
+        getAllCategories().then(data => {
+            return data.find(cat => cat.id === categoryId).name;
+        });
+
+    },[])*/
+
     if(categoryId){
         return productsCategoriesData.find(cat => cat.id === categoryId).name;
     }

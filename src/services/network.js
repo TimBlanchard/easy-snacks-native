@@ -34,3 +34,36 @@ export const getSchoolDetails = async (id) => {
         console.error(error);
     }
 }
+
+export const getSchoolDispensers = async (schoolId) => {
+    if(!schoolId) {
+        return;
+    }
+    try {
+        let response = await fetch(
+            'http://51.103.32.77/school/'+schoolId+'/vendingMachines',
+            {
+                "method": "GET"
+            }
+        );
+        let json = await response.json();
+        return json;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+export const getAllCategories = async () => {
+    try {
+        let response = await fetch(
+            'http://51.103.32.77/products/categories',
+            {
+                "method": "GET"
+            }
+        );
+        let json = await response.json();
+        return json;
+    } catch (error) {
+        console.error(error);
+    }
+}
