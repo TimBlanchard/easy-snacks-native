@@ -3,22 +3,6 @@ import {useEffect} from "react";
 import {getAllCategories} from "../services/network";
 
 // GET ALL TYPES OF PRODUCT OF DISPENSERS
-/*export const getDispensersProducts = (schoolDispensers) => {
-    if(schoolDispensers){
-        let productsIds = [];
-        schoolDispensers.forEach(
-            dispenser => dispenser.productsId.forEach(
-                productId => {
-                    if (!productsIds.find(el => el === productId))
-                        productsIds.push(productId)
-                }
-            )
-        );
-        return productsIds;
-    }
-}*/
-
-// GET ALL TYPES OF PRODUCT OF DISPENSERS
 export const getDispensersProducts = (dispensers) => {
     if(dispensers){
         let productsIds = [];
@@ -64,7 +48,18 @@ export const getProductsCategories = (products) => {
     }
 }
 
-// GET NAME OF CATEGORY ID
-export const getCategoryName = (categoryId) => {
+// GET NUMBER OF PRODUCTS OF A CATEGORY
+export const getProductsNumberOfCategory = (categoryId, products) => {
+    if(categoryId && products) {
+        let numberProducts = 0;
+        products.forEach(
+            product => {
+                if(product.categoryId === categoryId)
+                    numberProducts++;
+            }
+
+        )
+        return numberProducts
+    }
 
 }

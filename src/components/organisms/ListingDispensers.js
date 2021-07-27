@@ -9,7 +9,7 @@ import ListingDispenserItem from "../molecules/ListingDispenserItem";
 import Title from "../atoms/Title";
 
 
-export default function ListingDispensers({dispensers}) {
+export default function ListingDispensers({dispensers, allCategories}) {
 
     const ContainerTitle = styled.View`
       padding: ${spacing[2]} ${spacing[5]};
@@ -25,10 +25,12 @@ export default function ListingDispensers({dispensers}) {
             <FlatList
                 data={dispensers}
                 keyExtractor={(item, index) => index}
+                extraData={allCategories}
                 renderItem={({item}) =>
                     <ListingDispenserItem
                         key={item.id.toString()}
                         id={item.id}
+                        allCategories={allCategories}
                         products={item.products}
                     />}
             />

@@ -83,7 +83,7 @@ export default function SingleSchool() {
                         products.length > 0 &&
                         <PopularProductsSlider products={products}/>
                     }
-                    <ListingDispensers dispensers={dispensers} />
+                    <ListingDispensers allCategories={allCategories} dispensers={dispensers} />
                 </Container> : 'loading data'
             }
         </>
