@@ -40,31 +40,40 @@ export default function SingleSchool() {
         fetchSchoolsDetails();
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
+        console.log(schoolDetails[0], 'les school details');
+    }, [schoolDetails])
+
+    /*useEffect(()=>{
         setSchoolProducts();
     },[schoolDetails])
 
     useEffect(()=>{
         setProductsCategories(getProductsCategories(productsId));
-    },[productsId])
+    },[productsId])*/
 
 
 
     return (
-        <Container>
-            <SingleSchoolHeader name={schoolDetails.name}/>
+        <>
             {
-                productsCategories.length > 0 &&
-                <ProductsFilter categories={productsCategories}/>
+                schoolDetails[0] ?
+                    <Container>
+                    <SingleSchoolHeader name={schoolDetails[0].name}/>
+                    {
+                        productsCategories.length > 0 &&
+                        <ProductsFilter categories={productsCategories}/>
+                    }
+                    {
+                        productsId.length > 0 &&
+                        <PopularProductsSlider products={productsId}/>
+                    }
+                    <Title text='Distributeurs à proximité'/>
+                    <Text>Single school</Text>
+                    <Text>{params.id}</Text>
+                </Container> : 'loading data'
             }
-            {
-                productsId.length > 0 &&
-                <PopularProductsSlider products={productsId}/>
-            }
-            <Title text='Distributeurs à proximité'/>
-            <Text>Single school</Text>
-            <Text>{params.id}</Text>
-        </Container>
+        </>
     )
 }
 

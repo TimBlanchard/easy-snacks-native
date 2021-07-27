@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {View, Text, FlatList} from "react-native";
 import styled from "styled-components/native";
 import {border_radius, color, spacing} from "../../styles/const";
-import schoolsData from "../../helpers/schoolsData";
 import ListingSchoolItem from "../molecules/ListingSchoolItem";
 import FixedButton from "../atoms/FixedButton";
 import {getSchoolDetails, getSchoolsFromApiAsync} from "../../services/network";

@@ -2,7 +2,6 @@ import schoolsData from "../helpers/schoolsData";
 const BASE_URL = "http://51.103.32.77/";
 
 export const getSchoolsFromApiAsync = async () => {
-    // A DEFINIR QUAND ON AURA API BACKEND
     try {
         let response = await fetch(
             'http://51.103.32.77/schools/',
@@ -21,9 +20,16 @@ export const getSchoolsFromApiAsync = async () => {
 export const getSchoolDetails = async (id) => {
     if(!id) {
         return;
-    } try {
-    // RECUP A PARTIR FICHIER EN DUR EN ATTENDANT API BACK
-    return schoolsData.find(x => x.id === parseInt(id));
+    }
+    try {
+        let response = await fetch(
+            'http://51.103.32.77/school/'+id,
+            {
+                "method": "GET"
+            }
+        );
+        let json = await response.json();
+        return json;
     } catch (error) {
         console.error(error);
     }
