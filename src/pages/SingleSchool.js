@@ -12,6 +12,7 @@ import PopularProductsSlider from "../components/organisms/PopularProductsSlider
 import schoolsData from "../helpers/schoolsData";
 import {productsCategoriesData, productsData} from "../helpers/productsData";
 import {getDispensersProducts, getProductCategories, getProductsCategories} from "../helpers/functions";
+import ListingDispensers from "../components/organisms/ListingDispensers";
 
 export default function SingleSchool() {
     const [match, params] = useRoute("/schools/:id");
@@ -82,15 +83,13 @@ export default function SingleSchool() {
                         products.length > 0 &&
                         <PopularProductsSlider products={products}/>
                     }
-                    <Title text='Distributeurs à proximité'/>
-                    <Text>Single school</Text>
-                    <Text>{params.id}</Text>
+                    <ListingDispensers dispensers={dispensers} />
                 </Container> : 'loading data'
             }
         </>
     )
 }
 
-const Container = styled.View`
+const Container = styled.View `
   width: 100%;
 `;

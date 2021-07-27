@@ -39,7 +39,7 @@ export default function PopularProductsSlider({products}) {
                 <List
                     style={{ overflow: "visible" }}
                     data={products}
-                    keyExtractor={item => item.toString()}
+                    keyExtractor={(item, index) => index}
                     horizontal
                     renderItem={({item}) =>
                         <ProductCard

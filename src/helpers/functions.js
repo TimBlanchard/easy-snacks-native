@@ -67,16 +67,4 @@ export const getProductsCategories = (products) => {
 // GET NAME OF CATEGORY ID
 export const getCategoryName = (categoryId) => {
 
-    /*useEffect(()=>{
-
-        //GET CATEGORIES INFO
-        getAllCategories().then(data => {
-            return data.find(cat => cat.id === categoryId).name;
-        });
-
-    },[])*/
-
-    if(categoryId){
-        return productsCategoriesData.find(cat => cat.id === categoryId).name;
-    }
 }
