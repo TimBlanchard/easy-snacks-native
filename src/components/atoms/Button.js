@@ -7,7 +7,7 @@ export default function Button({text, secondary, ...rest}) {
 
     const ButtonContainer = styled.TouchableOpacity`
       left:0;
-      padding: ${spacing[4]};
+      padding: ${spacing[3]} ${spacing[5]};
       border-radius: ${border_radius[3]};
       text-align: center;
       border: 1px solid ${neutral.grey};

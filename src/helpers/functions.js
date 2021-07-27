@@ -3,16 +3,16 @@ import {productsCategoriesData, productsData} from "./productsData";
 // GET ALL TYPES OF PRODUCT OF DISPENSERS
 export const getDispensersProducts = (schoolDispensers) => {
     if(schoolDispensers){
-        let productsArray = [];
+        let productsIds = [];
         schoolDispensers.forEach(
-            element => element.productsId.forEach(
-                element => {
-                    if (!productsArray.find(el => el === element))
-                        productsArray.push(element)
+            dispenser => dispenser.productsId.forEach(
+                productId => {
+                    if (!productsIds.find(el => el === productId))
+                        productsIds.push(productId)
                 }
             )
         );
-        return productsArray;
+        return productsIds;
     }
 }
 
@@ -23,7 +23,7 @@ export const getProductCategories = (productId) => {
     } else {
         let productCategories = [];
         productsData.find(el => el.id === productId).categoriesId.forEach(
-            element => productCategories.push(element)
+            productCategory => productCategories.push(productCategory)
 
         )
         return productCategories;
@@ -38,6 +38,7 @@ export const getProductsCategories = (productsIdArray) => {
         productsIdArray.forEach(
             productId => {
                 const productCategories = getProductCategories(productId);
+                console.log(productCategories);
                 productCategories.forEach(
                     productCategory => {
                         if (!categories.find(el => el === productCategory))
@@ -47,5 +48,12 @@ export const getProductsCategories = (productsIdArray) => {
             }
         );
         return categories;
+    }
+}
+
+// GET NAME OF CATEGORY ID
+export const getCategoryName = (categoryId) => {
+    if(categoryId){
+        return productsCategoriesData.find(cat => cat.id === categoryId).name;
     }
 }

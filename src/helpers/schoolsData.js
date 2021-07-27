@@ -68,7 +68,7 @@ const schoolsData = [
         dispensers: [
             {
                 id: 1,
-                productsId: [1, 2, 3, 4, 5, 6]
+                productsId: [1, 2, 3, 4, 5, 6, 7]
             }
         ]
     },

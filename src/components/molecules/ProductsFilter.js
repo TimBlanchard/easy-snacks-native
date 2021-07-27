@@ -6,20 +6,40 @@ import {Link} from "wouter";
 import Button from "../atoms/Button";
 import schoolsData from "../../helpers/schoolsData";
 import {getSchoolDetails} from "../../services/network";
+import {FlatList, Text} from "react-native";
+import {getCategoryName} from "../../helpers/functions";
 
 export default function ProductsFilter(props) {
 
     const Container = styled.View`
       padding: ${spacing[5]};
       flex-direction: row;
-      overflow: auto;
+      overflow: scroll;
 `;
+    const List = styled.FlatList`
+        overflow: hidden;
+`;
+
+    useEffect(()=>{
+        console.log(props.categories);
+    },[])
 
     return (
         <Container>
-            <Button secondary style={{marginLeft: spacing[3]}} text='Tous les produits' />
-            <Button secondary style={{marginLeft: spacing[3]}} text='Snacks' />
-            <Button secondary style={{marginLeft: spacing[3]}} text='Boissons' />
+            <Button text='Tous les produits' secondary active />
+            <List
+                style={{ overflow: "visible" }}
+                data={props.categories}
+                keyExtractor={item => item.toString()}
+                horizontal
+                renderItem={({item}) =>
+                    <Button
+                        key={item.toString()}
+                        text={getCategoryName(item)}
+                        secondary
+                        style={{marginLeft: spacing[3]}}
+                    />}
+            />
         </Container>
     )
 }

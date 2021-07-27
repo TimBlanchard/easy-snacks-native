@@ -36,6 +36,12 @@ export const productsData = [
         img_name: "salade-thon-oeuf",
         categoriesId: [3]
     },
+    {
+        id: 7,
+        name: "Brownie",
+        img_name: "brownie",
+        categoriesId: [4]
+    },
 ]
 
 export const productsCategoriesData = [

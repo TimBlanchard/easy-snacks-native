@@ -17,6 +17,7 @@ export default function SingleSchool() {
     const [match, params] = useRoute("/schools/:id");
     const [schoolDetails, setSchoolDetails] = useState([]);
     const [productsId, setProductsId] = useState([]);
+    const [productsCategories, setProductsCategories] = useState([]);
 
     //GET SCHOOL DETAILS FROM API
     const fetchSchoolsDetails = () => {
@@ -44,7 +45,7 @@ export default function SingleSchool() {
     },[schoolDetails])
 
     useEffect(()=>{
-        console.log(getProductsCategories([1, 2, 3, 4]), 'product categories id');
+        setProductsCategories(getProductsCategories(productsId));
     },[productsId])
 
 
@@ -52,8 +53,11 @@ export default function SingleSchool() {
     return (
         <Container>
             <SingleSchoolHeader name={schoolDetails.name}/>
-            <ProductsFilter dispensers={params.id}/>
-            <PopularProductsSlider products={productsId}/>
+            {
+                productsCategories.length > 0 &&
+                <ProductsFilter categories={productsCategories}/>
+            }
+            {/*<PopularProductsSlider products={productsId}/>*/}
             <Title text='Distributeurs à proximité'/>
             <Text>Single school</Text>
             <Text>{params.id}</Text>
