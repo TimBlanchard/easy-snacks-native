@@ -9,11 +9,14 @@ import {color} from "../styles/const";
 import Title from "../components/atoms/Title";
 import ProductsFilter from "../components/molecules/ProductsFilter";
 import PopularProductsSlider from "../components/organisms/PopularProductsSlider";
+import schoolsData from "../helpers/schoolsData";
+import {productsCategoriesData, productsData} from "../helpers/productsData";
+import {getDispensersProducts, getProductCategories} from "../helpers/functions";
 
 export default function SingleSchool() {
     const [match, params] = useRoute("/schools/:id");
     const [schoolDetails, setSchoolDetails] = useState([]);
-    const [products, setProducts] = useState([]);
+    const [productsId, setProductsId] = useState([]);
 
     //GET SCHOOL DETAILS FROM API
     const fetchSchoolsDetails = () => {
@@ -23,25 +26,31 @@ export default function SingleSchool() {
     }
 
     // GET ALL TYPES OF PRODUCT OF THE SCHOOL
-    const getSchoolProducts = () => {
+    const setSchoolProducts = () => {
         if(schoolDetails.dispensers){
-            let productsArray = [];
-            schoolDetails.dispensers.forEach(
-                element => element.productsId.forEach(
-                    element => {
-                        if (!productsArray.find(el => el === element))
-                            productsArray.push(element)
-                    }
-                )
-            );
-            console.log(productsArray, 'hel')
-            setProducts(productsArray);
-            return productsArray;
+            return setProductsId(getDispensersProducts(schoolDetails.dispensers));
+        } else {
+            return;
         }
     }
 
     const getSchoolProductsCategories = () => {
+        if(productsId){
+            let categories = [];
+            productsId.forEach(
+                    element => {
+                        console.log(element, 'element');
+                        if (productsCategoriesData.find(x => x.id === element.id))
+                            categories.push(element)
+                    }
+            );
+            console.log(categories);
+            return categories;
+        }
+    }
 
+    const setProductsData = () => {
+        
     }
 
 
@@ -50,9 +59,14 @@ export default function SingleSchool() {
     }, []);
 
     useEffect(()=>{
-        getSchoolProducts();
+        setSchoolProducts();
         getSchoolProductsCategories();
     },[schoolDetails])
+
+    useEffect(()=>{
+        getSchoolProductsCategories();
+        console.log(getProductCategories(2), 'product Id');
+    },[productsId])
 
 
 
@@ -60,7 +74,7 @@ export default function SingleSchool() {
         <Container>
             <SingleSchoolHeader name={schoolDetails.name}/>
             <ProductsFilter dispensers={params.id}/>
-            <PopularProductsSlider products={products}/>
+            <PopularProductsSlider products={productsId}/>
             <Title text='Distributeurs à proximité'/>
             <Text>Single school</Text>
             <Text>{params.id}</Text>
