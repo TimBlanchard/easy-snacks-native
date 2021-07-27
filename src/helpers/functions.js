@@ -31,18 +31,21 @@ export const getProductCategories = (productId) => {
 }
 
 
-
-const getProductsCategories = () => {
-    if(productsId){
+// GET ALL CATEGORIES OF PRODUCTS ID ARRAY
+export const getProductsCategories = (productsIdArray) => {
+    if(productsIdArray){
         let categories = [];
-        productsId.forEach(
-            element => {
-                console.log(element, 'element');
-                if (productsCategoriesData.find(x => x.id === element.id))
-                    categories.push(element)
+        productsIdArray.forEach(
+            productId => {
+                const productCategories = getProductCategories(productId);
+                productCategories.forEach(
+                    productCategory => {
+                        if (!categories.find(el => el === productCategory))
+                        categories.push(productCategory);
+                    }
+                );
             }
         );
-        console.log(categories);
         return categories;
     }
 }

@@ -11,7 +11,7 @@ import ProductsFilter from "../components/molecules/ProductsFilter";
 import PopularProductsSlider from "../components/organisms/PopularProductsSlider";
 import schoolsData from "../helpers/schoolsData";
 import {productsCategoriesData, productsData} from "../helpers/productsData";
-import {getDispensersProducts, getProductCategories} from "../helpers/functions";
+import {getDispensersProducts, getProductCategories, getProductsCategories} from "../helpers/functions";
 
 export default function SingleSchool() {
     const [match, params] = useRoute("/schools/:id");
@@ -34,25 +34,6 @@ export default function SingleSchool() {
         }
     }
 
-    const getSchoolProductsCategories = () => {
-        if(productsId){
-            let categories = [];
-            productsId.forEach(
-                    element => {
-                        console.log(element, 'element');
-                        if (productsCategoriesData.find(x => x.id === element.id))
-                            categories.push(element)
-                    }
-            );
-            console.log(categories);
-            return categories;
-        }
-    }
-
-    const setProductsData = () => {
-        
-    }
-
 
     useEffect(() => {
         fetchSchoolsDetails();
@@ -60,12 +41,10 @@ export default function SingleSchool() {
 
     useEffect(()=>{
         setSchoolProducts();
-        getSchoolProductsCategories();
     },[schoolDetails])
 
     useEffect(()=>{
-        getSchoolProductsCategories();
-        console.log(getProductCategories(2), 'product Id');
+        console.log(getProductsCategories([1, 2, 3, 4]), 'product categories id');
     },[productsId])
 
 
