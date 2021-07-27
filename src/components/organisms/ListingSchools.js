@@ -5,16 +5,31 @@ import {border_radius, color, spacing} from "../../styles/const";
 import schoolsData from "../../helpers/schoolsData";
 import ListingSchoolItem from "../molecules/ListingSchoolItem";
 import FixedButton from "../atoms/FixedButton";
+import {getSchoolDetails, getSchoolsFromApiAsync} from "../../services/network";
 
 
 export default function ListingSchools(props) {
 
     const [selectedId, setSelectedId] = useState(null);
+    const [schools, setSchools] = useState([])
+
+    const fetchSchools = () => {
+        getSchoolsFromApiAsync().then(data => {
+                setSchools(data);
+        });
+    }
+    useEffect(() => {
+        fetchSchools();
+    }, [])
+
+    useEffect(() => {
+        console.log(schools, 'les écoles');
+    }, [schools])
 
     return (
         <Container>
             <FlatList
-                data={schoolsData}
+                data={schools}
                 extraData={selectedId}
                 keyExtractor={item => item.id.toString()}
                 renderItem={({item}) =>
@@ -23,7 +38,7 @@ export default function ListingSchools(props) {
                         id={item.id}
                         name={item.name}
                         address={item.address}
-                        postal_code={item.postal_code}
+                        postal_code={item.zipCode}
                         city={item.city}
                         isSelected={selectedId === item.id}
                         setSelectedId={setSelectedId}
