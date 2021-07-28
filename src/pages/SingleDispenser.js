@@ -13,6 +13,7 @@ import schoolsData from "../helpers/schoolsData";
 import {productsCategoriesData, productsData} from "../helpers/productsData";
 import {getDispensersProducts, getProductCategories, getProductsCategories} from "../helpers/functions";
 import ListingDispensers from "../components/organisms/ListingDispensers";
+import HeaderDescription from "../components/organisms/HeaderDescription";
 
 export default function SingleDispenser() {
     const [match, params] = useRoute("/dispenser/:id");
@@ -41,18 +42,9 @@ export default function SingleDispenser() {
     return (
         <>
             {
-                dispenserDetails[0] ?
+                dispenserDetails ?
                     <Container>
-                        <SingleSchoolHeader name={dispenserDetails[0].name}/>
-                        {
-                            productsCategories.length > 0 &&
-                            <ProductsFilter allCategories={allCategories} categories={productsCategories}/>
-                        }
-                        {
-                            products.length > 0 &&
-                            <PopularProductsSlider products={products}/>
-                        }
-                        <ListingDispensers allCategories={allCategories} dispensers={dispensers} />
+                        <HeaderDescription name={dispenserDetails.nodeName}/>
                     </Container> : 'loading data'
             }
         </>
