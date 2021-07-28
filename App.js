@@ -6,6 +6,7 @@ import SearchSchools from "./src/pages/SearchSchools.js";
 import SingleSchool from "./src/pages/SingleSchool.js";
 import {useFonts} from "expo-font";
 import AppLoading from "expo-app-loading";
+import SingleDispenser from "./src/pages/SingleDispenser";
 
 export default function App() {
     let [fontsLoaded] = useFonts({
@@ -21,6 +22,7 @@ if(!fontsLoaded) {
         <Container>
             <Route path="/" component={SearchSchools}/>
             <Route path="/schools/:name" component={SingleSchool}/>
+            <Route path="/dispenser/:id" component={SingleDispenser}/>
             <StatusBar style="auto" />
         </Container>
     );

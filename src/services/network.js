@@ -67,3 +67,21 @@ export const getAllCategories = async () => {
         console.error(error);
     }
 }
+
+export const getDispenserDetails = async (id) => {
+    if(!id) {
+        return;
+    }
+    try {
+        let response = await fetch(
+            'http://51.103.32.77/vendingMachine/'+id,
+            {
+                "method": "GET"
+            }
+        );
+        let json = await response.json();
+        return json;
+    } catch (error) {
+        console.error(error);
+    }
+}
