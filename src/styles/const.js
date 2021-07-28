@@ -2,6 +2,7 @@
 
 export const color = {
   primary: '#8C60FE',
+  primary_op_80: '#8c60fecc',
   secondary: '#FDF4EF',
   disabled: '#C5AFFF',
   done: '#77F583',

@@ -15,7 +15,7 @@ export default function IconWithText(props) {
 `;
 
     const Txt = styled.Text`
-    color: ${props.textColor ? props.textColor : neutral.black};
+    color: ${props.textColor ? props.textColor : neutral.black_op_80};
       font-size: ${ props.size_small ? fontSize[3] : fontSize[5]};
       letter-spacing: ${letterSpacing.neg_3};
       margin-right: ${props => props.value ? spacing[2] : 0 };

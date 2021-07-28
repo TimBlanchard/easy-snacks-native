@@ -25,6 +25,7 @@ export default function ListingDispenserItem({id, products, allCategories}) {
     `;
     const TextsContainer = styled.View`
       flex-direction: column;
+      margin-left: ${spacing[4]};
     `;
 
     const LeftBlock = styled.View`
@@ -59,8 +60,8 @@ export default function ListingDispenserItem({id, products, allCategories}) {
                 <LeftBlock>
                     <IconWithBlock iconName="dispenser" />
                     <TextsContainer>
-                        <Text style={[globalStyle.subtitle, {marginBottom: spacing[3]}]} >{randomDistance(10, 800)}m</Text>
-                        <Text style={[globalStyle.subtitle, {marginBottom: spacing[3]}]} >#{id}</Text>
+                        <Text style={[globalStyle.text_big, {marginBottom: spacing[2]}]} >{randomDistance(10, 800)}m</Text>
+                        <Text style={globalStyle.text_tiny} >#{id}</Text>
                     </TextsContainer>
                 </LeftBlock>
                 <RightBlock>
